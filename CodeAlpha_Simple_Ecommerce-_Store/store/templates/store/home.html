@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MY Store</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            margin: 0;
+            color: #333;
+        }
+
+        .orders-link a {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        .product {
+            background: #ffffff;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
+        }
+
+        .product:hover {
+            transform: translateY(-2px);
+        }
+
+        .product h3 {
+            margin: 0;
+        }
+
+        .product a {
+            text-decoration: none;
+            color: #2c3e50;
+        }
+
+        .product a:hover {
+            color: #3498db;
+        }
+
+        .price {
+            margin-top: 6px;
+            color: #555;
+            font-size: 15px;
+        }
+
+        hr {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Products</h1>
+        <div class="orders-link">
+            <a href="{% url 'order_history' %}">My Orders</a>
+        </div>
+    </div>
+
+    {% for product in products %}
+    <div class="product">
+        <h3>
+            <a href="{% url 'product_detail' product.id %}">
+                {{ product.name }}
+            </a>
+        </h3>
+        <p class="price">Price: ₹ {{ product.price }}</p>
+    </div>
+    {% endfor %}
+
+</div>
+
+</body>
+</html>

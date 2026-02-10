@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Success</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 80px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+            text-align: center;
+        }
+
+        h2 {
+            color: #2ecc71;
+            margin-bottom: 20px;
+        }
+
+        .info {
+            font-size: 16px;
+            color: #444;
+            margin: 8px 0;
+        }
+
+        .status {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 25px;
+            text-decoration: none;
+        }
+
+        .btn {
+            padding: 12px 22px;
+            font-size: 15px;
+            border-radius: 6px;
+            background-color: #3498db;
+            color: white;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Payment Successful! 🎉</h2>
+
+    <p class="info">Order ID : {{ order_id }}</p>
+    <p class="info">Total Paid : ₹{{ order.total_price }}</p>
+    <p class="status">Status: Paid ✅</p>
+
+    <a href="{% url 'home' %}">
+        <span class="btn">Continue Shopping</span>
+    </a>
+</div>
+
+</body>
+</html>
